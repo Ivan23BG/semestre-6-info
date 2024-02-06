@@ -1,3 +1,5 @@
 */.idea/*
 */images_sortie/*
 *.exe
+*.pgm
+*.ppm
