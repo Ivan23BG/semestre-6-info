@@ -10,13 +10,13 @@ int main(int argc, char *argv[]) {
     char cNomImgLue[250], cNomFicSort[255];
     int nH, nW, nTaille;
 
-    if (argc != 2) {
-        printf("Usage: ImageIn.pgm \n");
+    if (argc != 3) {
+        printf("Usage: ImageIn.pgm hist.dat\n");
         exit(1);
     }
 
     sscanf(argv[1], "%s", cNomImgLue);
-    sprintf(cNomFicSort, "out/histo.dat");
+    sscanf(argv[2], "%s", cNomFicSort);
 
     OCTET *ImgIn;
 

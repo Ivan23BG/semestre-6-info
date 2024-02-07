@@ -8,18 +8,15 @@
 
 int main(int argc, char *argv[]) {
     char cNomImgLue[250], cNomFicSort[250];
-    int nH, nW, nTaille, nR, nG, nB, S_R, S_G, S_B;
+    int nH, nW, nTaille, nR, nG, nB;
 
-    if (argc != 5) {
-        printf("Usage: ImageIn.ppm Seuil_rouge Seuil_blue Seuil_vert \n");
+    if (argc != 3) {
+        printf("Usage: ImageIn.ppm FicOut.dat\n");
         exit(1);
     }
 
     sscanf(argv[1], "%s", cNomImgLue);
-    sscanf(argv[2], "%d", &S_R);
-    sscanf(argv[3], "%d", &S_G);
-    sscanf(argv[4], "%d", &S_B);
-    sprintf(cNomFicSort, "out/histo_couleur.dat");
+    sscanf(argv[2], "%s", cNomFicSort);
 
     OCTET *ImgIn;
 
