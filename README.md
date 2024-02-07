@@ -12,3 +12,12 @@ Contributeurs principaux
 # Source
 
 Ce polycopié de cours repose sur les excellents travaux de M. Puech et M. Meynard
+
+
+# Compilation
+
+Pour compiler le code `c++` associé, il suffit de lancer la commande suivante:
+
+```bash
+g++ -o main main.cpp
+```
