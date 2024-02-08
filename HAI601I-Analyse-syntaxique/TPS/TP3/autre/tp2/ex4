@@ -1,0 +1,27 @@
+L-key correspond à 
+if|then|else|throw
+
+
+L-c10 correspond à
+0|[1-9][0-9]*
+
+
+L-c8 correspond à
+0[0-7]*
+
+
+L-c16 correspond à
+0x|([0-9][a-f][A-F])+
+
+
+L-id correspond à
+[a-z]|[A-Z] ([a-z]|[A-Z]|[0-9]|_)*
+
+
+L-f correspond à
+([0-9]+"."|"."[0-9])[0-9]*([eE][+-]?[1-9][0-9]*)?
+
+
+L-sep correspond à
+
+(" "|"\t"|"\n"|)+|/((/.*\n)|("*"[^[*\]]*"*\"))
