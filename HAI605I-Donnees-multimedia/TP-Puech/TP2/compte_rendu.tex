@@ -18,7 +18,6 @@
 
 
 \begin{document}
-
 	\maketitle
 
 	% make table of contents
@@ -27,12 +26,12 @@
 	\newpage
 	\section{Seuillage d'une image et erosion de l'image binaire}\label{sec:1}
 
-	\subsection{Choix de l'image}
+	\subsection{Choix de l'image}\label{subsec:1.1}
 
-	On commence par choisir une image, dans notre cas on a choisi l'image \texttt{08.pgm}, et ensuite on la reduit pour
-	qu'elle soit de taille 256x256. Cela donne alors :
-	% insert side by side original image vs reduced image
-
+	On commence par choisir une image au format \emph{pgm}, dans notre cas, l'image \texttt{08.pgm}.
+	On réduit ensuite la taille de l'image pour faciliter le traitement, on choisit une taille de 256x256 pixels.
+	Cela donne alors :
+	% insert original image and resized image
 	\begin{figure}[!htb]
 		\begin{minipage}{0.48\textwidth}
 			\centering
@@ -41,8 +40,196 @@
 		\end{minipage}\hfill
 		\begin{minipage}{0.48\textwidth}
 			\centering
-			\fbox{\includegraphics[width=.7\linewidth]{./out/test-grey-08}}
+			\fbox{\includegraphics[width=.7\linewidth]{./out/resize-08}}
+			\caption{Image redimensionnée}\label{Fig:resize-08}
+		\end{minipage}
+	\end{figure}
+
+	\subsection{Seuillage de l'image}\label{subsec:1.2}
+
+	On commence par modifier le programme \texttt{test\_grey.cpp} pour que les objets soient noirs et le fond blanc.
+	On peut ensuite tester le seuillage de l'image avec différents seuils.
+	Le plus pertinent semble être un seuil de 80, cela donne alors :
+	% insert image and modified image
+	\begin{figure}[!htb]
+		\begin{minipage}{0.48\textwidth}
+			\centering
+			\fbox{\includegraphics[width=.7\linewidth]{./out/resize-08}}
+			\caption{Image redimensionnée}\label{Fig:resize-08-2}
+		\end{minipage}\hfill
+		\begin{minipage}{0.48\textwidth}
+			\centering
+			\fbox{\includegraphics[width=.7\linewidth]{./out/test-grey-resize-08}}
 			\caption{Image modifiée avec un seuil de 80}\label{Fig:test-grey-08}
 		\end{minipage}
 	\end{figure}
+
+	\subsection{Erosion de l'image binaire}\label{subsec:1.3}
+
+	On commence par créer un programme \texttt{erosion.cpp} pour effectuer l'érosion de l'image.
+	Cela consiste à parcourir l'image et à remplacer chaque pixel par le maximum des pixels voisins.
+
+	L'essentiel du code est le suivant : % insertion en image du code
+	\begin{figure}[!htb]
+		\centering
+		\fbox{\includegraphics[width=.7\linewidth]{./out/erosion-code}}
+		\caption{Code de l'érosion}\label{Fig:erosion-code}
+	\end{figure}
+
+	On peut ensuite tester l'érosion de l'image avec l'image seuillée précédemment.
+	Cela donne alors :
+	% insert image and modified image
+	\begin{figure}[!htb]
+		\begin{minipage}{0.48\textwidth}
+			\centering
+			\fbox{\includegraphics[width=.7\linewidth]{./out/test-grey-resize-08}}
+			\caption{Image modifiée avec un seuil de 80}\label{Fig:test-grey-08-2}
+		\end{minipage}\hfill
+		\begin{minipage}{0.48\textwidth}
+			\centering
+			\fbox{\includegraphics[width=.7\linewidth]{./out/erosion-resize-08}}
+			\caption{Image modifiée avec l'érosion}\label{Fig:erosion-test-grey-08}
+		\end{minipage}
+	\end{figure}
+
+	\newpage
+	\section{Seuillage d'une image et dilatation de l'image binaire}\label{sec:2}
+
+	\subsection{Dilatation de l'image binaire}\label{subsec:2.1}
+
+	On commence par créer un programme \texttt{dilatation.cpp} pour effectuer la dilatation de l'image.
+	Cela consiste à parcourir l'image et à remplacer chaque pixel par le minimum des pixels voisins.
+
+	L'essentiel du code est le suivant : % insertion en image du code
+	\begin{figure}[!htb]
+		\centering
+		\fbox{\includegraphics[width=.7\linewidth]{./out/dilatation-code}}
+		\caption{Code de la dilatation}\label{Fig:dilatation-code}
+	\end{figure}
+
+	On peut ensuite tester la dilatation de l'image avec l'image seuillée précédemment.
+	Cela donne alors :
+	% insert image and modified image
+	\begin{figure}[!htb]
+		\begin{minipage}{0.48\textwidth}
+			\centering
+			\fbox{\includegraphics[width=.7\linewidth]{./out/test-grey-resize-08}}
+			\caption{Image modifiée avec un seuil de 80}\label{Fig:test-grey-08-3}
+		\end{minipage}\hfill
+		\begin{minipage}{0.48\textwidth}
+			\centering
+			\fbox{\includegraphics[width=.7\linewidth]{./out/dilatation-resize-08}}
+			\caption{Image modifiée avec la dilatation}\label{Fig:dilatation-test-grey-08}
+		\end{minipage}
+	\end{figure}
+
+	\newpage
+	\section{Fermeture et ouverture d'une image et de l'image binaire}\label{sec:3}
+
+	\subsection{Fermeture de l'image binaire}\label{subsec:3.1}
+
+	On commence par créer un programme \texttt{fermeture.cpp} pour effectuer la fermeture de l'image.
+	Cela consiste à effectuer une dilatation de l'image puis une érosion de l'image.
+	Cela permet de fermer les trous dans les objets de l'image.
+
+	L'essentiel du code est le suivant : % insertion en image du code
+	\begin{figure}[!htb]
+		\centering
+		\fbox{\includegraphics[width=.7\linewidth]{./out/fermeture-code}}
+		\caption{Code de la fermeture}\label{Fig:fermeture-code}
+	\end{figure}
+
+	L'essentiel du travail est de modifier les programmes précédents pour qu'ils puissent être utilisés dans ce
+	programme.
+	Pour cela, on crée des nouveaux fichiers sans \emph{main} et extrait le contenu d'\texttt{image\_ppm.h} dans un
+	fichier \emph{cpp}.
+
+	On peut ensuite tester la fermeture de l'image avec l'image seuillée précédemment.
+	Cela donne alors :
+	% insert image and modified image
+	\begin{figure}[!htb]
+		\begin{minipage}{0.48\textwidth}
+			\centering
+			\fbox{\includegraphics[width=.7\linewidth]{./out/test-grey-resize-08}}
+			\caption{Image modifiée avec un seuil de 80}\label{Fig:test-grey-08-4}
+		\end{minipage}\hfill
+		\begin{minipage}{0.48\textwidth}
+			\centering
+			\fbox{\includegraphics[width=.7\linewidth]{./out/fermeture-resize-08}}
+			\caption{Image modifiée avec la fermeture}\label{Fig:fermeture-test-grey-08}
+		\end{minipage}
+	\end{figure}
+
+	\subsection{Ouverture de l'image binaire}\label{subsec:3.2}
+
+	On commence par créer un programme \texttt{ouverture.cpp} pour effectuer l'ouverture de l'image.
+	Cela consiste à effectuer une érosion de l'image puis une dilatation de l'image.
+	Cela permet de supprimer les petits objets de l'image.
+
+	L'essentiel du code est le suivant : % insertion en image du code
+	\begin{figure}[!htb]
+		\centering
+		\fbox{\includegraphics[width=.7\linewidth]{./out/ouverture-code}}
+		\caption{Code de l'ouverture}\label{Fig:ouverture-code}
+	\end{figure}
+
+	On peut ensuite tester l'ouverture de l'image avec l'image seuillée précédemment.
+	Cela donne alors :
+	% insert image and modified image
+	\begin{figure}[!htb]
+		\begin{minipage}{0.48\textwidth}
+			\centering
+			\fbox{\includegraphics[width=.7\linewidth]{./out/test-grey-resize-08}}
+			\caption{Image modifiée avec un seuil de 80}\label{Fig:test-grey-08-5}
+		\end{minipage}\hfill
+		\begin{minipage}{0.48\textwidth}
+			\centering
+			\fbox{\includegraphics[width=.7\linewidth]{./out/ouverture-resize-08}}
+			\caption{Image modifiée avec l'ouverture}\label{Fig:ouverture-test-grey-08}
+		\end{minipage}
+	\end{figure}
+
+	\subsection{Enchainement de fermeture et ouverture}\label{subsec:3.3}
+
+	On peut ensuite enchaîner la fermeture et l'ouverture de l'image pour obtenir une image plus propre.
+	Cela donne alors :
+	% insert original then closed then reopened image
+	\begin{figure}[!htb]
+		\begin{minipage}{0.30\textwidth}
+			\centering
+			\fbox{\includegraphics[width=.7\linewidth]{./out/test-grey-resize-08}}
+			\caption{Image modifiée avec un seuil de 80}\label{Fig:test-grey-08-6}
+		\end{minipage}\hfill
+		\begin{minipage}{0.30\textwidth}
+			\centering
+			\fbox{\includegraphics[width=.7\linewidth]{./out/fermeture-resize-08}}
+			\caption{Image modifiée avec fermeture}\label{Fig:fermeture-ouverture-test-grey-08}
+		\end{minipage}
+		\begin{minipage}{0.30\textwidth}
+			\centering
+			\fbox{\includegraphics[width=.7\linewidth]{./out/ouverture-fermeture-resize-08}}
+			\caption{Image modifiée avec fermeture puis ouverture}\label{Fig:ouverture-fermeture-test-grey-08}
+		\end{minipage}
+	\end{figure}
+
+	\subsection{Impact cumulatif de la fermeture et de l'ouverture}\label{subsec:3.4}
+
+	On peut ensuite tester l'impact cumulatif de la fermeture et de l'ouverture de l'image.
+	On procède d'abord à 3 dilatations, 6 érosions et enfin 3 dilatations.
+
+	Cela donne alors :
+	% insert original then modified image
+	\begin{figure}[!htb]
+		\begin{minipage}{0.48\textwidth}
+			\centering
+			\fbox{\includegraphics[width=.7\linewidth]{./out/test-grey-resize-08}}
+			\caption{Image modifiée avec un seuil de 80}\label{Fig:test-grey-08-7}
+		\end{minipage}\hfill
+		\begin{minipage}{0.48\textwidth}
+			\centering
+			\fbox{\includegraphics[width=.7\linewidth]{./out/edil3-resize-08}}
+			\caption{Image modifiée avec cumul}\label{Fig:fermeture-ouverture-test-grey-08-2}
+		\end{minipage}
+	\end{figure}
+
 \end{document}
