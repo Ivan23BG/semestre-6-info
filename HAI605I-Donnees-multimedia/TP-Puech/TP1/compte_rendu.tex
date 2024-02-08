@@ -21,6 +21,10 @@
 
 	\maketitle
 
+	% make table of contents
+	\tableofcontents
+
+	\newpage
 	\section{Seuillage d'une image au format pgm}\label{sec:1}
 
 	\subsection{Ouverture des fichiers}\label{subsec:1.1}
@@ -164,7 +168,7 @@
 	\end{figure}
 
 	\newpage
-	\section{Seuillage d'une image couleur (ppm)}
+	\section{Seuillage d'une image couleur (ppm)}\label{sec:5}
 	On reprend le programme \texttt{test\_couleur.cpp} pour le modifier afin de pouvoir effectuer un seuillage en 3
 	parties.
 	Il suffit de rajouter deux seuils supplémentaires, S\_G et S\_B, et de les appliquer à l'image.
@@ -192,7 +196,7 @@
 	\end{figure}
 
 	\newpage
-	\section{Histogrammes de 3 composantes d'une image couleur (ppm)}
+	\section{Histogrammes de 3 composantes d'une image couleur (ppm)}\label{sec:6}
 
 
 	Pour cette partie, on a d\'evelopp\'e un programme \texttt{histo\_couleur.cpp} qui permet de g\'en\'erer
@@ -223,4 +227,12 @@
 			\caption{Histogramme de l'image}\label{Fig:histo-couleur-plot}
 		\end{minipage}
 	\end{figure}
+
+	\newpage
+	\section{Conclusion}\label{sec:7}
+	Ce TP a permis de prendre en main une librairie de traitement d'images, en l'occurrence la librairie de William
+	Puech.
+	On a pu effectuer des seuillages sur des images au format pgm, puis sur des images au format ppm.
+	On a aussi pu g\'en\'erer des histogrammes pour des images au format pgm, ensuite pour des images au format ppm.
+	Enfin, on a pu g\'en\'erer des profils pour des images au format pgm.
 \end{document}
