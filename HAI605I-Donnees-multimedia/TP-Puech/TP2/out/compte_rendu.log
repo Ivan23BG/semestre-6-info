@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.7)  9 FEB 2024 08:43
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (MiKTeX 24.1) (preloaded format=pdflatex 2024.2.7)  9 FEB 2024 14:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -491,12 +491,12 @@ LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 3
 (C:/Users/ileje/AppData/Local/Programs/my_latex\tex/latex/lm\t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-<./out/orig-08.jpeg, id=69, 513.92pt x 513.92pt>
+<./out/orig-08.jpeg, id=84, 513.92pt x 513.92pt>
 File: ./out/orig-08.jpeg Graphic file (type jpg)
 <use ./out/orig-08.jpeg>
 Package pdftex.def Info: ./out/orig-08.jpeg  used on input line 38.
 (pdftex.def)             Requested size: 143.39998pt x 143.40257pt.
-<./out/resize-08.jpeg, id=70, 256.96pt x 256.96pt>
+<./out/resize-08.jpeg, id=85, 256.96pt x 256.96pt>
 File: ./out/resize-08.jpeg Graphic file (type jpg)
 <use ./out/resize-08.jpeg>
 Package pdftex.def Info: ./out/resize-08.jpeg  used on input line 43.
@@ -505,7 +505,7 @@ File: ./out/resize-08.jpeg Graphic file (type jpg)
 <use ./out/resize-08.jpeg>
 Package pdftex.def Info: ./out/resize-08.jpeg  used on input line 57.
 (pdftex.def)             Requested size: 143.39998pt x 143.40257pt.
-<./out/test-grey-resize-08.jpeg, id=71, 256.96pt x 256.96pt>
+<./out/test-grey-resize-08.jpeg, id=86, 256.96pt x 256.96pt>
 File: ./out/test-grey-resize-08.jpeg Graphic file (type jpg)
 <use ./out/test-grey-resize-08.jpeg>
 Package pdftex.def Info: ./out/test-grey-resize-08.jpeg  used on input line 62.
@@ -514,7 +514,7 @@ Package pdftex.def Info: ./out/test-grey-resize-08.jpeg  used on input line 62.
 
 [2 <./out/orig-08.jpeg> <./out/resize-08.jpeg> <./out/test-grey-resize-08.jpeg>
 ]
-<./out/erosion-code.png, id=83, 428.35031pt x 398.23781pt>
+<./out/erosion-code.png, id=98, 428.35031pt x 398.23781pt>
 File: ./out/erosion-code.png Graphic file (type png)
 <use ./out/erosion-code.png>
 Package pdftex.def Info: ./out/erosion-code.png  used on input line 76.
@@ -524,13 +524,13 @@ File: ./out/test-grey-resize-08.jpeg Graphic file (type jpg)
 Package pdftex.def Info: ./out/test-grey-resize-08.jpeg  used on input line 86.
 
 (pdftex.def)             Requested size: 143.39998pt x 143.40257pt.
-<./out/erosion-resize-08.jpeg, id=85, 256.96pt x 256.96pt>
+<./out/erosion-resize-08.jpeg, id=100, 256.96pt x 256.96pt>
 File: ./out/erosion-resize-08.jpeg Graphic file (type jpg)
 <use ./out/erosion-resize-08.jpeg>
 Package pdftex.def Info: ./out/erosion-resize-08.jpeg  used on input line 91.
 (pdftex.def)             Requested size: 143.39998pt x 143.40257pt.
  [3 <./out/erosion-code.png> <./out/erosion-resize-08.jpeg>]
-<./out/dilatation-code.png, id=94, 426.09187pt x 396.7322pt>
+<./out/dilatation-code.png, id=109, 426.09187pt x 396.7322pt>
 File: ./out/dilatation-code.png Graphic file (type png)
 <use ./out/dilatation-code.png>
 Package pdftex.def Info: ./out/dilatation-code.png  used on input line 107.
@@ -540,14 +540,14 @@ File: ./out/test-grey-resize-08.jpeg Graphic file (type jpg)
 Package pdftex.def Info: ./out/test-grey-resize-08.jpeg  used on input line 117
 .
 (pdftex.def)             Requested size: 143.39998pt x 143.40257pt.
-<./out/dilatation-resize-08.jpeg, id=95, 256.96pt x 256.96pt>
+<./out/dilatation-resize-08.jpeg, id=110, 256.96pt x 256.96pt>
 File: ./out/dilatation-resize-08.jpeg Graphic file (type jpg)
 <use ./out/dilatation-resize-08.jpeg>
 Package pdftex.def Info: ./out/dilatation-resize-08.jpeg  used on input line 12
 2.
 (pdftex.def)             Requested size: 143.39998pt x 143.40257pt.
  [4 <./out/dilatation-code.png> <./out/dilatation-resize-08.jpeg>]
-<./out/fermeture-code.png, id=104, 405.01312pt x 268.75406pt>
+<./out/fermeture-code.png, id=119, 405.01312pt x 268.75406pt>
 File: ./out/fermeture-code.png Graphic file (type png)
 <use ./out/fermeture-code.png>
 Package pdftex.def Info: ./out/fermeture-code.png  used on input line 139.
@@ -557,14 +557,14 @@ File: ./out/test-grey-resize-08.jpeg Graphic file (type jpg)
 Package pdftex.def Info: ./out/test-grey-resize-08.jpeg  used on input line 154
 .
 (pdftex.def)             Requested size: 143.39998pt x 143.40257pt.
-<./out/fermeture-resize-08.jpeg, id=105, 256.96pt x 256.96pt>
+<./out/fermeture-resize-08.jpeg, id=120, 256.96pt x 256.96pt>
 File: ./out/fermeture-resize-08.jpeg Graphic file (type jpg)
 <use ./out/fermeture-resize-08.jpeg>
 Package pdftex.def Info: ./out/fermeture-resize-08.jpeg  used on input line 159
 .
 (pdftex.def)             Requested size: 143.39998pt x 143.40257pt.
  [5 <./out/fermeture-code.png> <./out/fermeture-resize-08.jpeg>]
-<./out/ouverture-code.png, id=114, 385.44pt x 264.23718pt>
+<./out/ouverture-code.png, id=129, 385.44pt x 264.23718pt>
 File: ./out/ouverture-code.png Graphic file (type png)
 <use ./out/ouverture-code.png>
 Package pdftex.def Info: ./out/ouverture-code.png  used on input line 174.
@@ -574,7 +574,7 @@ File: ./out/test-grey-resize-08.jpeg Graphic file (type jpg)
 Package pdftex.def Info: ./out/test-grey-resize-08.jpeg  used on input line 184
 .
 (pdftex.def)             Requested size: 143.39998pt x 143.40257pt.
-<./out/ouverture-resize-08.jpeg, id=115, 256.96pt x 256.96pt>
+<./out/ouverture-resize-08.jpeg, id=130, 256.96pt x 256.96pt>
 File: ./out/ouverture-resize-08.jpeg Graphic file (type jpg)
 <use ./out/ouverture-resize-08.jpeg>
 Package pdftex.def Info: ./out/ouverture-resize-08.jpeg  used on input line 189
@@ -591,7 +591,7 @@ File: ./out/fermeture-resize-08.jpeg Graphic file (type jpg)
 Package pdftex.def Info: ./out/fermeture-resize-08.jpeg  used on input line 208
 .
 (pdftex.def)             Requested size: 89.6267pt x 89.6276pt.
-<./out/ouverture-fermeture-resize-08.jpeg, id=124, 256.96pt x 256.96pt>
+<./out/ouverture-fermeture-resize-08.jpeg, id=139, 256.96pt x 256.96pt>
 File: ./out/ouverture-fermeture-resize-08.jpeg Graphic file (type jpg)
 <use ./out/ouverture-fermeture-resize-08.jpeg>
 Package pdftex.def Info: ./out/ouverture-fermeture-resize-08.jpeg  used on inpu
@@ -602,13 +602,13 @@ File: ./out/test-grey-resize-08.jpeg Graphic file (type jpg)
 Package pdftex.def Info: ./out/test-grey-resize-08.jpeg  used on input line 228
 .
 (pdftex.def)             Requested size: 143.39998pt x 143.40257pt.
-<./out/edil3-resize-08.jpeg, id=125, 256.96pt x 256.96pt>
+<./out/edil3-resize-08.jpeg, id=140, 256.96pt x 256.96pt>
 File: ./out/edil3-resize-08.jpeg Graphic file (type jpg)
 <use ./out/edil3-resize-08.jpeg>
 Package pdftex.def Info: ./out/edil3-resize-08.jpeg  used on input line 233.
 (pdftex.def)             Requested size: 143.39998pt x 143.40257pt.
  [7 <./out/ouverture-fermeture-resize-08.jpeg> <./out/edil3-resize-08.jpeg>]
-<./out/difference-code.png, id=136, 531.1845pt x 431.211pt>
+<./out/difference-code.png, id=151, 531.1845pt x 431.211pt>
 File: ./out/difference-code.png Graphic file (type png)
 <use ./out/difference-code.png>
 Package pdftex.def Info: ./out/difference-code.png  used on input line 250.
@@ -618,13 +618,14 @@ File: ./out/test-grey-resize-08.jpeg Graphic file (type jpg)
 Package pdftex.def Info: ./out/test-grey-resize-08.jpeg  used on input line 260
 .
 (pdftex.def)             Requested size: 143.39998pt x 143.40257pt.
-<./out/difference-tg-dil-resize-08.jpeg, id=137, 256.96pt x 256.96pt>
+<./out/difference-tg-dil-resize-08.jpeg, id=152, 256.96pt x 256.96pt>
 File: ./out/difference-tg-dil-resize-08.jpeg Graphic file (type jpg)
 <use ./out/difference-tg-dil-resize-08.jpeg>
 Package pdftex.def Info: ./out/difference-tg-dil-resize-08.jpeg  used on input 
 line 265.
 (pdftex.def)             Requested size: 143.39998pt x 143.40257pt.
- [8 <./out/difference-code.png> <./out/difference-tg-dil-resize-08.jpeg>] [9]
+ [8 <./out/difference-code.png> <./out/difference-tg-dil-resize-08.jpeg>] [9] [
+10] [11]
 (C:\Users\ileje\Documents\L3\semestre-6-info\HAI605I-Donnees-multimedia\TP-Puec
 h\TP2\out\compte_rendu.aux)
  ***********
@@ -641,17 +642,17 @@ Package rerunfilecheck Warning: File `compte_rendu.out' has changed.
 (rerunfilecheck)                or use package `bookmark'.
 
 Package rerunfilecheck Info: Checksums for `compte_rendu.out':
-(rerunfilecheck)             Before: 6D92191F88721D66E47EF139A6F7626E;2714
-(rerunfilecheck)             After:  E1E188CDE8AD56D178DA851732E56A69;3147.
+(rerunfilecheck)             Before: E1E188CDE8AD56D178DA851732E56A69;3147
+(rerunfilecheck)             After:  AA572CE31F86DB52D0ED5A77E74CEEED;3596.
  ) 
 Here is how much of TeX's memory you used:
- 11789 strings out of 475248
- 193897 string characters out of 5756876
- 1926785 words of memory out of 5000000
- 33108 multiletter control sequences out of 15000+600000
+ 11804 strings out of 475248
+ 194123 string characters out of 5756876
+ 1927785 words of memory out of 5000000
+ 33117 multiletter control sequences out of 15000+600000
  609014 words of font info for 66 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,10n,79p,396b,446s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,10n,79p,396b,592s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/lm/lmbx10.
 pfb><C:/Users/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/lm/lmbx1
 2.pfb><C:/Users/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/lm/lmc
@@ -662,9 +663,9 @@ m/lmr17.pfb><C:/Users/ileje/AppData/Local/Programs/my_latex/fonts/type1/public/
 lm/lmri10.pfb><C:/Users/ileje/AppData/Local/Programs/my_latex/fonts/type1/publi
 c/lm/lmtt10.pfb>
 Output written on C:\Users\ileje\Documents\L3\semestre-6-info\HAI605I-Donnees-m
-ultimedia\TP-Puech\TP2\out\compte_rendu.pdf (9 pages, 544043 bytes).
+ultimedia\TP-Puech\TP2\out\compte_rendu.pdf (11 pages, 556123 bytes).
 PDF statistics:
- 202 PDF objects out of 1000 (max. 8388607)
- 49 named destinations out of 1000 (max. 500000)
- 164 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 227 PDF objects out of 1000 (max. 8388607)
+ 55 named destinations out of 1000 (max. 500000)
+ 188 words of extra memory for PDF output out of 10000 (max. 10000000)
 
