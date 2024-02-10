@@ -3,7 +3,6 @@
 //
 // erosion2.cpp : Erode une image en niveau de gris
 
-#include <stdio.h>
 #include "erosion2.h"
 
 void erosion(OCTET *ImgIn, OCTET *ImgOut, int nH, int nW, char *cNomImgEcrite) {

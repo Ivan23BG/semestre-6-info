@@ -3,7 +3,6 @@
 //
 // dilatation2.cpp : Erode une image en niveau de gris
 
-#include <stdio.h>
 #include "dilatation2.h"
 
 void dilatation(OCTET *ImgIn, OCTET *ImgOut, int nH, int nW, char *cNomImgEcrite) {
