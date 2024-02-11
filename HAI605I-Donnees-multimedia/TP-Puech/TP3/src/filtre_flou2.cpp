@@ -1,10 +1,10 @@
 //
 // Created by Ivan on 06/02/2024.
 //
-// test_grey_n.cpp : Seuille une image en niveau de gris
+// filtre_flou2.cpp : Seuille une image en niveau de gris
 
 #include <stdio.h>
-#include "../../librairie/image_ppm.h"
+#include "image_ppm.h"
 
 int main(int argc, char *argv[]) {
     char cNomImgLue[250], cNomImgEcrite[250];
@@ -36,9 +36,10 @@ int main(int argc, char *argv[]) {
     for (int i = 1; i < nH-1; i++){
         for (int j = 1; j < nW-1; j++) {
             // p_out(i,j)= ( p(i,j)+p(i-1,j)+p(i+1,j)+p(i,j-1)+p(i,j+1) )/5.
-            ImgOut[i * nW + j] = (ImgIn[i * nW + j] + ImgIn[(i-1) * nW + j] + ImgIn[(i+1) * nW + j] 
-            +ImgIn[i * nW + j+1] + ImgIn[(i-1) * nW + j+1] + ImgIn[(i+1) * nW + j+1]
-            +ImgIn[i * nW + j-1] + ImgIn[(i-1) * nW + j-1] + ImgIn[(i+1) * nW + j-1])/9;
+            ImgOut[i * nW + j] =
+                    (ImgIn[i * nW + j] + ImgIn[(i-1) * nW + j] + ImgIn[(i+1) * nW + j]
+                    +ImgIn[i * nW + j+1] + ImgIn[(i-1) * nW + j+1] + ImgIn[(i+1) * nW + j+1]
+                    +ImgIn[i * nW + j-1] + ImgIn[(i-1) * nW + j-1] + ImgIn[(i+1) * nW + j-1])/9;
         }
     }
 

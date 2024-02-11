@@ -1,0 +1,17 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{\numberline {1}Choix des images, histogramme et profil de ligne}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Choix de l'image}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Histogramme}{2}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Inverse vidéo}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Comparaison des profils de ligne}{3}{subsection.2.1}%
+\contentsline {section}{\numberline {3}Filtre flou 1}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Programme}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Comparaison des profils de ligne}{5}{subsection.3.2}%
+\contentsline {section}{\numberline {4}Filtre flou 2}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Programme}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Floutage répété}{7}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Comparaison des profils de ligne}{8}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Comparaison des histogrammes}{9}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Floutage de l'image couleur}{10}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Programme}{10}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Comparaison des histogrammes}{10}{subsection.5.2}%

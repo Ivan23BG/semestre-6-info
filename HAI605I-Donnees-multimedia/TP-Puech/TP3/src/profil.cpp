@@ -1,23 +1,28 @@
 //
 // Created by Ivan on 06/02/2024.
 //
-// profil.cpp : affiche les donnees d'une partie d'une image
+// profil.cpp : enregistre les donnees d'une partie d'une image
 
 #include <stdio.h>
-#include "../../librairie/image_ppm.h"
+#include "image_ppm.h"
 
 int main(int argc, char *argv[]) {
-    char cNomImgLue[250], l_or_c[2];
+    char cNomImgLue[250], cNomFicSort[255], l_or_c[2];
     int nH, nW, nTaille, num;
 
-    if (argc != 4) {
-        printf("Usage: ImageIn.pgm (ligne (l) ou colonne (c)) num_de_l/c \n");
+    if (argc < 4 || argc > 5) {
+        printf("Usage: ImageIn.pgm l_or_c num Optional-FicOut.dat\n");
         exit(1);
     }
 
     sscanf(argv[1], "%s", cNomImgLue);
     sscanf(argv[2], "%s", l_or_c);
     sscanf(argv[3], "%d", &num);
+    if (argc == 5) {
+        sscanf(argv[4], "%s", cNomFicSort);
+    } else {
+        sprintf(cNomFicSort, "out/fich.dat");
+    }
 
     OCTET *ImgIn;
 
@@ -27,24 +32,24 @@ int main(int argc, char *argv[]) {
     allocation_tableau(ImgIn, OCTET, nTaille);
     lire_image_pgm(cNomImgLue, ImgIn, nH * nW);
 
-    FILE *fp = fopen("fich.dat", "w+");
+    // Open file for writing
+    FILE *fp = fopen(cNomFicSort, "w+");
 
-    if (strcmp(l_or_c, "l") == 0) {
+    // Output data
+    if (l_or_c[0] == 'l') { // if l_or_c is 'l' then we get the values of the specific line
         for (int i = 0; i < nW; i++) {
-            // printf("%d\t%d\n", i, ImgIn[(num - 1) * nW + i]);
-            fprintf(fp, "%d %d\n", i, ImgIn[(num - 1) * nW + i]);
+            // printf("%d %d\n", i, ImgIn[num * nW + i]);
+            fprintf(fp, "%d %d\n", i, ImgIn[num * nW + i]);
         }
-    } else {
-        if (strcmp(l_or_c, "c") == 0) {
-            for (int i = 0; i < nH; i++) {
-                // printf("%d\t%d\n", i, ImgIn[(num-1) + nW * i]);
-                fprintf(fp, "%d %d\n", i, ImgIn[(num-1) + nW * i]);
-            }
-        } else {
-            printf("%s is not a valid option",l_or_c);
-            exit(1);
+    } else { // if l_or_c is 'c' then we get the values of the specific column
+        for (int i = 0; i < nH; i++) {
+            // printf("%d %d\n", i, ImgIn[num * nW + i];
+            fprintf(fp, "%d %d\n", i, ImgIn[i * nW + num]);
         }
     }
+
+    fclose(fp);
+
     free(ImgIn);
 
     return 1;

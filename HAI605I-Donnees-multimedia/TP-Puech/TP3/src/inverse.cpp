@@ -4,7 +4,7 @@
 // test_grey_n.cpp : Seuille une image en niveau de gris
 
 #include <stdio.h>
-#include "../../librairie/image_ppm.h"
+#include "image_ppm.h"
 
 int main(int argc, char *argv[]) {
     char cNomImgLue[250], cNomImgEcrite[250];

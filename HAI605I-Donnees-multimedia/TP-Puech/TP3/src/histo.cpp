@@ -4,19 +4,23 @@
 // histo.cpp : enregistre les donnees d'une image
 
 #include <stdio.h>
-#include "../../librairie/image_ppm.h"
+#include "image_ppm.h"
 
 int main(int argc, char *argv[]) {
     char cNomImgLue[250], cNomFicSort[255];
     int nH, nW, nTaille;
 
-    if (argc != 3) {
-        printf("Usage: ImageIn.pgm hist.dat\n");
+    if (argc < 2 || argc > 3) {
+        printf("Usage: ImageIn.pgm Optional-FicOut.dat\n");
         exit(1);
     }
 
     sscanf(argv[1], "%s", cNomImgLue);
-    sscanf(argv[2], "%s", cNomFicSort);
+    if (argc == 3) {
+        sscanf(argv[2], "%s", cNomFicSort);
+    } else {
+        sprintf(cNomFicSort, "out/histo.dat");
+    }
 
     OCTET *ImgIn;
 
@@ -26,15 +30,21 @@ int main(int argc, char *argv[]) {
     allocation_tableau(ImgIn, OCTET, nTaille);
     lire_image_pgm(cNomImgLue, ImgIn, nH * nW);
 
+    // initialize tab to 0
     int tab[256];
     for (int i = 0; i < 256; i++) {
         tab[i] = 0;
     }
 
+    // Open file for writing
     FILE *fp = fopen(cNomFicSort, "w+");
+
+    // Update array
     for (int i = 0; i < nTaille; i++) {
         tab[ImgIn[i]] += 1;
     }
+
+    // Output data
     for (int i = 0; i < 256; i++) {
         // printf("%d %d\n", i, tab[i]);
         fprintf(fp, "%d %d\n", i, tab[i]);
