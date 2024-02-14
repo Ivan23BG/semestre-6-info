@@ -1,0 +1,11 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{\numberline {1}Création de la carte de gradient d'une image}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Programme}{2}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Comparaison des profils}{3}{subsection.1.2}%
+\contentsline {section}{\numberline {2}Extraction des maxima locaux par seuillage}{4}{section.2}%
+\contentsline {section}{\numberline {3}Seuillage par hystérésis des maxima locaux}{5}{section.3}%
+\contentsline {section}{\numberline {4}Prétraitement par filtrage}{6}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Filtre moyenneur}{6}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Filtre gaussien}{7}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Résultats}{8}{subsection.4.3}%
+\contentsline {section}{\numberline {5}Conclusion}{9}{section.5}%

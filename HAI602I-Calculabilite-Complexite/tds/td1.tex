@@ -1,0 +1,366 @@
+\documentclass[french,a4paper,10pt]{article}
+\input{../../common/header.tex}
+\usepackage[a4paper,hmargin=30mm,vmargin=30mm]{geometry}
+\title{\color{astral} \sffamily \bfseries Planche TD 1 - Calculabilité}
+\author{Ivan Lejeune\thanks{Cours inspiré de M. Giroudeau}}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	\section{Divers}
+	
+	\begin{td-exo}[1 - Ensemble infini]
+		On considère les problèmes suivants :
+			\begin{itemize}
+				\item Hôtel d'Hilbert : Un hôtel possède une infinité de chambres.
+				
+				Peut-on trouver une chambre libre pour un nouveau client ?
+				
+				\item Hôtel d'Hilbert suite : Un hôtel possède une infinité de chambres.
+				
+				Peut-on trouver une infinité de chambres libres pour une infinité de clients ?
+			\end{itemize}
+			
+		\begin{enumerate}
+			\item Proposer une solution pour les deux problèmes.
+			
+			\item Modéliser les deux problèmes et proposer pour chaque problème une fonction mathématique de $\bb N$ dans $\bb N$.
+		\end{enumerate}
+	\end{td-exo}
+	
+	\begin{td-exo}[2 - Paradoxe]
+		Montrer que les problèmes suivants engendrent un paradoxe :
+			\begin{enumerate}
+				\item Le conseil municipal d'un village vote un arrêté municipal qui enjoint à son barbier (masculin) de raser tous les habitants masculins du village qui ne se rasent pas eux-mêmes et seulement ceux-ci.
+				
+				\item Un crocodile s'empare d'un bébé et dit à la mère : "Si tu devines ce que je vais faire, je te rends le bébé, sinon je le dévore".
+				
+				En supposant que le crocodile tienne parole, que doit dire la mère pour que le crocodile rende l'enfant à sa mère ?
+				
+				Une réponse usuelle de la mère est "Tu vas le dévorer !".
+			\end{enumerate}
+		
+	\end{td-exo}
+	
+	\section{Variations sur le codage}
+	
+	\begin{td-exo}[3 - Codage de couples d'entiers]
+		Soit la fonction suivante:
+			\[\begin{aligned}
+				Rang&: & \bb N\times \bb N&\to&&\bb N\\
+				&~&(x,y)&\mapsto&&\frac{(x+y)(x+y+1)}2+x
+			\end{aligned}\]
+		
+		\begin{enumerate}
+			\item Calculer $Rang(4,5)$. Donner le couple pour lequel la valeur du codage est 8.
+			
+			 \item Donner une version récursive de la fonction $Rang$.
+			 
+			 \item Donner la fonction inverse.
+		\end{enumerate}
+	\end{td-exo}
+	
+	\begin{td-exo}[]
+		Soit $c$ la fonction de codage pour les couples d'entiers vue en cours.
+		
+		\begin{enumerate}
+			\item Soit $h$ la fonction de codage pour les triplets définie par
+				\[\begin{aligned}
+					h(x,y,z)=c(c(x,y),z)
+				\end{aligned}\]
+				Quel est le doublet codé par 67 ? Quel est le triplet codé par 67 ?
+				
+			\item Le couple $(z,t)$ succède au couple $(x,y)$ si 
+			\[\begin{aligned}
+				c(z,t)=c(x,y)+1
+			\end{aligned}\]
+			Écrire la fonction successeur qui prend en paramètre un couple et retourne le couple successeur.
+		\end{enumerate}
+		
+	\end{td-exo}
+	
+	\begin{td-exo}[]
+		Proposer un codage pour les nombres rationnels. Un nombre rationnel $r$ est caractérisé par une paire de naturels $(a,b)$ telle que $r=\frac ab$, $b\ne0$ et telle que $a$ et $b$ n'ont pas de facteurs communs.
+		
+	\end{td-exo}
+	
+	\begin{td-exo}[]
+		Pour coder les listes d'entiers, peut-on : 
+			\begin{enumerate}
+				\item faire la somme des entiers de la liste, et à somme égale prendre l'ordre lexicographique ?
+				
+				\item faire comme pour les mots : prendre les listes les plus courtes d'abord et à égalité prendre l'ordre lexicographique ?
+			\end{enumerate}
+		
+	\end{td-exo}
+
+	\begin{td-exo}[]
+		On ordonne les listes de la façon suivante :
+		\begin{center}
+			$\sigma(l)=$ la somme des entiers de la liste + la longueur de la liste
+		\end{center}
+		
+		Puis à valeur de $\sigma$ égale on ordonne dans l'ordre lexicographique.
+		
+		On note $U_k$ l'ensemble des listes $l$ telles que
+			\[\begin{aligned}
+				\sigma(l)=k\quad\text{et}\quad u_k=|U_k|
+			\end{aligned}\]
+			
+		\begin{enumerate}
+			\item Donner les ensembles $U_i$ pour $i\in\llbracket1,4\rrbracket$.
+			
+			\item Montrer que $u_k=2^{k-1}$ pour tout $k\ge1$.
+			
+			\item Pour $k\ge 1$, quelle est la première liste de $U_k$ ? Et la dernière ?
+			
+			\item Donner la fonction de codage en version itérative et récursive (respectivement décodage).
+		\end{enumerate}
+		
+	\end{td-exo}
+	
+	\begin{td-exo}[]
+		Soit la fonction $f$ de $\bb N^\ast\to\bb N$ définie comme suit :
+			\[
+			f(n)=
+				\begin{cases}
+					k&\text{si }n=2^k\\
+					f(\frac n2)&\text{si }n\text{ pair et n'est pas une puissance de }2\\
+						f(3n+1)&\text{sinon}
+				\end{cases}
+			\]
+		On appelle
+			\[\begin{aligned}
+				A_i=\{x\mid f(x)=i\}
+			\end{aligned}\]
+		\begin{enumerate}
+			\item Donner quelques éléments de $A_i$ pour $i\in\llbracket1,6\rrbracket$.
+			
+			\item Donner un algorithme qui prend $i$ en paramètre et qui affiche tous les éléments de $A_i$.
+			
+			\item Donner un algorithme qui affiche $A_1\cup A_2$.
+			
+			\item Donner un algorithme qui affiche $A_4\cup A_6$
+		\end{enumerate}
+		
+	\end{td-exo}
+	
+	\begin{td-exo}[]
+		Le but est de donner un numéro entier naturel à chaque objet manipulé (mot, instruction machine de Turing,etc...) et de remplacer des manipulations de ces objets par des opérations de nature arithmétique sur leurs numéros. Nous commençons par les séquences d'entiers. Le numéro de Gödel d'un $n$-uplet d'entiers naturel $(x_1,\dots,x_n)$, noté par $\langle x_1,\dots,x_n\rangle$, est défini comme suit :
+			\[\begin{aligned}
+				A=\langle x_1,\dots,x_n\rangle &= 2^n\cdot 3^{x_1}\cdot 5^{x_2}\cdots p_n^{x_n}\\
+				&= 2^n\prod_{i=1}^n p_i^{x_i}
+			\end{aligned}\]
+		
+		\begin{enumerate}
+			\item Donner $\langle 10,11\rangle$.
+			
+			\item Le numéro de Gödel d'un $n$-uplet est une opération injective ? Surjective ?
+			
+			\item Étendre le nombre de Gödel au mot défini par 
+				\[\begin{aligned}
+					w=a_{i_1}a_{i_2}\dots a_{i_l}
+				\end{aligned}\]
+				
+			\item Étendre le nombre de Gödel aux instructions
+				\[\begin{aligned}
+					I~\colon~ q_i a_j\to q_k a_l \left\{\begin{matrix}
+						-\\G\\D
+					\end{matrix}\right\}
+				\end{aligned}\]
+				pour les machines de Turing.
+				\begin{rappel}
+					Les instructions ont la forme suivante :
+						\begin{center}
+							(état, symbole lu) $\to$ (état, symbole écrit, déplacement).
+						\end{center}
+				\end{rappel}
+				
+			\item Étendre le nombre de Gödel au numéro d'une machine de Turing avec $I_1,\dots,I_n$ les instructions de la machine $M$.
+			
+			\item Étendre le nombre de Gödel au numéro d'une configuration
+				\[\begin{aligned}
+					c=(w_G,q_i,w_D)
+				\end{aligned}\]
+		\end{enumerate}
+		
+	\end{td-exo}
+	
+	\begin{td-exo}[]
+		Soit $f$ une application de $\bb N$ dans $\bb N$ telle que :
+			\[\begin{aligned}
+				\forall (m,n)\in\bb N, f(m^2+n^2)=f(m)^2+f(n)^2
+			\end{aligned}\]
+			
+		On veut montrer que $f$ est :
+			\begin{itemize}
+				\item l'application nulle, donnée par 
+					\[\begin{aligned}
+						\forall n\in \bb N,f(n)=0
+					\end{aligned}\]
+				\item l'application identité, donnée par 
+					\[\begin{aligned}
+						\forall n\in\bb N,f(n)=n
+					\end{aligned}\]
+			\end{itemize}
+		
+		On supposera que $a$ est l'entier naturel $f(1)$.
+		\begin{enumerate}
+			\item Montrer que $f(0)=0$. En déduire que pour tout $n\in\bb N$, on a
+				\[\begin{aligned}
+					f(n^2)=f(n)^2
+				\end{aligned}\]
+				
+			\item Montrer alors que $a^2=a$, donc que $a$ est égal à $0$ ou à $1$. Pour répondre, il suffit de prouver que l'égalité
+				\[\begin{aligned}
+					f(n)=an
+				\end{aligned}\]
+				
+			est vrai pour tout $n\in\bb N$.
+			
+			\item Vérifier successivement les égalités suivantes :
+				\[\begin{aligned}
+					f(2)&=2a\\
+					f(4)&=4a\\
+					f(5)&=5a
+				\end{aligned}\]
+				
+			\item Utiliser les valeurs de $f(4)$ et de $f(5)$ pour montrer que $f(3)=3a$
+			
+			\item Utiliser les valeurs de $f(1)$ et de $f(5)$ pour montrer que $f(7) = 7a$.
+			
+			\item Montrer les égalités suivantes :
+				\[\begin{aligned}
+					f(8)&=8a\\
+					f(9)&=9a\\
+					f(10)&=10a\\
+					f(6)&=6a
+				\end{aligned}\]
+			
+			\item Observer que pour tout $m\in \bb N$, on a
+				\[
+				\begin{cases}
+					(2m)^2+(m-5)^2=(2m-4)^2+(m+3)^2\\
+					(2m+1)^2+(m-2)^2=(2m-1)^2+(m+2)^2
+				\end{cases}
+				\]
+				
+			\item Montrer que pour tout $n\in\bb N$, on a $f(n)=an$.
+			
+			\item Conclure.
+		\end{enumerate}
+		
+	\end{td-exo}
+	
+	\section{Diagonalisation}
+	
+	\begin{td-exo}[]
+		Montrer que $\fo{0,1}$ n'est pas dénombrable, puis conclure.
+		
+	\end{td-exo}
+	
+	\begin{td-exo}[]
+		On considère l'ensemble $U$ des suites $(u_n)_{n\in \bb N}$ à valeurs dans $\{0,1\}$. Montrer que $U$ n'est pas dénombrable.
+		
+	\end{td-exo}
+	
+	\section{Dénombrabilité}
+	
+	\begin{td-exo}[]
+		Un ensemble est \defemph{fini} si on ne peut pas le mettre en bijection avec une partie stricte de lui-même. Il est infini sinon.
+		
+		Montrer que l'ensemble des entiers est infini.
+		
+	\end{td-exo}
+	
+	\begin{td-exo}[]
+		Montrer que l'ensemble $F$ des parties finies de $\bb N$ est dénombrable.
+		
+	\end{td-exo}
+	
+	\section{Fonctions (non)-calculables}
+	
+	\begin{td-exo}[]
+		Soit $f~\colon~\bb N\to\{0,1\}$ une fonction totale non calculable.
+			\begin{enumerate}
+				\item Rappeler la définition d'une fonction totale et d'une fonction non calculable.
+				
+				\item Construire une fonction $g_1~\colon~\bb N\to\bb N$ totale, croissante et non calculable à partir de $f$.
+				
+				\item Construire une fonction $g_2~\colon~\bb N\to\bb N$ totale, strictement croissante et non calculable à partir de $f$.
+				
+				\item Est-il vrai que toute fonction $f~\colon~\bb N\to\bb N$ qui est non bornée est également non calculable?
+			\end{enumerate}
+		
+	\end{td-exo}
+	\begin{td-exo}[16 - Calculabilité]
+		\begin{enumerate}
+			\item Une fonction $\bb N\to\bb N$ totale, non calculable et croissante, peut-elle être bornée ?
+			
+			\item Montrer que toute fonction totale, croissante et bornée est calculable. Que se passe-t-il si une fonction est totale décroissante ?
+		\end{enumerate}
+		
+	\end{td-exo}
+	
+	\begin{td-exo}[17 - Calculabilité]
+		\begin{enumerate}
+			\item Montrer que l'inverse d'une fonction $f$ calculable et bijective est calculable.
+			
+			\item Si $f$ n'est pas surjective, quel est le problème rencontré avec la procédure précédente ? Même chose pour une fonction surjective mais partielle.
+			
+			\item Si $f$ n'est pas injective, que calcule $f^{-1}$ ?
+		\end{enumerate}
+		
+	\end{td-exo}
+	
+	\begin{td-exo}[]
+		Montrer qu'une fonction $f$ totale $\bb N\to\bb N$ est calculable si et seulement si son graphe 
+			\[\begin{aligned}
+				G=\{(x,f(x))\mid x\in\bb N\}
+			\end{aligned}\]
+		est décidable.
+		
+	\end{td-exo}
+	
+	\begin{td-exo}[]
+		Soient $E$ un ensemble et $\phi$ une fonction telle que $\phi(n)$ est égale au nombre d'éléments de $E$ strictement inférieur à $n$.
+		
+		Montrer que $\phi$ est calculable si et seulement si $E$ est décidable.
+		
+	\end{td-exo}
+	
+	\section{Problèmes indécidables}
+	
+	\begin{td-exo}[]
+		Nous considérons la fonction suivante donnée par l'algorithme 1 :\\
+		\begin{algorithm}[H]
+			\caption{La fonction de Collatz}
+			\SetAlgoLined
+			\KwData{$n\in\bb N$}
+			\KwResult{$k\in\bb N$}
+			\While{$n\ne 1$}{
+			\If{$n=0\pmod 2$}{$n\gets \frac n2$}
+			\Else{$n\gets 3\times n+1$}
+			}
+		\end{algorithm}
+		Actuellement nous ne savons pas si cette fonction termine pour tout $n$.
+		
+		Est-ce que vous êtes d'accord avec la preuve suivante ?
+		\begin{center}
+			"Si le problème de l'arrêt était décidable, il suffirait de l'appliquer à ce programme pour savoir si son exécution s'arrête. Or, on ne sait pas si son exécution s'arrête. D'où la contradiction."
+		\end{center}
+	\end{td-exo}
+	
+	\begin{td-exo}[]
+		Né en Pologne en 1897, Emil Post émigre pour les États-Unis en 1904, où il mène de brillantes études à l'université de Columbia.
+		Malgré une maladie très handicapante, il conduit des recherches en logique au City College de New York qui l'amènent à définir en 1946 le problème qui porte aujourd'hui son nom, dont il démontre l'indécidabilité.
+		Il meurt en 1954.
+		
+		Le problème de \emph{Post} est un problème de décision.
+		
+	\end{td-exo}
+\end{document}
+
+
+

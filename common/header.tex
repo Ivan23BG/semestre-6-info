@@ -1,0 +1,138 @@
+\makeatletter
+%--------------------------------------------------------------------------------
+\usepackage[T1]{fontenc} % font type
+\usepackage[french]{babel} % language
+\usepackage{lmodern} % font type
+\usepackage[shortlabels]{enumitem}
+\setlist[itemize,1]{label={\color{gray}\small \textbullet}} % customises itemize default -
+\usepackage{fancyhdr} % customises head and foot-notes
+\usepackage{centernot} % allows centering \not with \centernot
+\usepackage{stmaryrd} % allows \llbracket
+
+\usepackage{xcolor} % colour customisation, extends to tables with {colortbl}
+\definecolor{astral}{RGB}{46,116,181}
+\definecolor{verdant}{RGB}{96,172,128}
+\definecolor{calculus-coral}{RGB}{255,191,191} % exercice colour
+\definecolor{matrix-mist}{RGB}{204,204,204} % remark colour
+\definecolor{quadratic-quartz}{RGB}{204,153,153} % example colour 
+
+
+\usepackage{latexsym}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{amsthm}
+
+\usepackage[ruled,vlined]{algorithm2e}
+
+
+
+
+\newtheoremstyle{gen-style}{\topsep}{\topsep}%
+{}%         Body font
+{}%         Indent amount (empty = no indent, \parindent = para indent)
+{\sffamily\bfseries}% Thm head font
+{.}%        Punctuation after thm head
+{ }%     Space after thm head (\newline = linebreak)
+{\thmname{#1}\thmnumber{~#2}\thmnote{~#3}}%         Thm head spec
+
+
+\newtheoremstyle{no-num-style}{\topsep}{\topsep}%
+{}%         Body font
+{}%         Indent amount (empty = no indent, \parindent = para indent)
+{\sffamily\bfseries}% Thm head font
+{.}%        Punctuation after thm head
+{ }%     Space after thm head (\newline = linebreak)
+{\thmname{#1}\thmnote{~#3}}%         Thm head spec
+
+
+\usepackage[]{mdframed}
+
+\newcommand{\mytheorem}[5]{%
+	\ifstrequal{#5}{o}{%
+		\newmdtheoremenv[
+		hidealllines=true,
+		leftline=true,
+		skipabove=0pt,
+		innertopmargin=-5pt,
+		innerbottommargin=2pt,
+		linewidth=4pt,
+		innerrightmargin=0pt,
+		linecolor=#3,
+		]{#1}[#4]{#2}%
+	}{%
+		\newmdtheoremenv[
+		hidealllines=true,
+		leftline=true,
+		skipabove=0pt,
+		innertopmargin=-5pt,
+		innerbottommargin=2pt,
+		linewidth=4pt,
+		innerrightmargin=0pt,
+		linecolor=#3,
+		]{#1}{#2}[#4]%
+	}%
+}
+
+\theoremstyle{gen-style}
+\mytheorem{example}{Exemple}{quadratic-quartz}{section}{}
+\mytheorem{remark}{Remarque}{matrix-mist}{section}{}
+
+\theoremstyle{no-num-style}
+\mytheorem{td-sol}{Solution}{verdant}{}{}
+\mytheorem{rappel}{Rappel}{matrix-mist}{section}{}
+\mytheorem{td-exo}{Exercice}{calculus-coral}{}{}
+
+%---------------
+% Mise en page
+%--------------
+
+\setlength{\parindent}{0pt}
+
+\providecommand{\defemph}[1]{{\sffamily\bfseries\color{astral}#1}}
+
+
+\usepackage{sectsty}
+\allsectionsfont{\color{astral}\normalfont\sffamily\bfseries}
+
+\usepackage{mathrsfs}
+
+%----- Easy way to redeclare math operators -----
+\makeatletter
+\newcommand\RedeclareMathOperator{%
+	\@ifstar{\def\rmo@s{m}\rmo@redeclare}{\def\rmo@s{o}\rmo@redeclare}%
+}
+\newcommand\rmo@redeclare[2]{%
+	\begingroup \escapechar\m@ne\xdef\@gtempa{{\string#1}}\endgroup
+	\expandafter\@ifundefined\@gtempa
+	{\@latex@error{\noexpand#1undefined}\@ehc}%
+	\relax
+	\expandafter\rmo@declmathop\rmo@s{#1}{#2}}
+\newcommand\rmo@declmathop[3]{%
+	\DeclareRobustCommand{#2}{\qopname\newmcodes@#1{#3}}%
+}
+\@onlypreamble\RedeclareMathOperator
+\makeatother
+
+\newcommand{\skipline}{\vspace{\baselineskip}}
+\newcommand{\noi}{\noindent}
+%------------------------------------------------
+
+
+\newcommand{\ol}[1]{\overline{#1}} % overline
+\newcommand{\ul}[1]{\underline{#1}} % underline
+\newcommand{\sub}{\subset} % subset
+\newcommand{\scr}[1]{\mathscr{#1}} % scr rapide
+\newcommand{\bb}[1]{\mathbb{#1}} % bb rapide
+\newcommand{\restr}[2]{#1\mathop{}\!|_{#2}} % restriction
+
+
+%----- Intervalles -----
+\newcommand{\oo}[1]{\mathopen{]}#1\mathclose{[}}
+\newcommand{\of}[1]{\mathopen{]}#1\mathclose{]}}
+\newcommand{\fo}[1]{\mathopen{[}#1\mathclose{[}}
+\newcommand{\ff}[1]{\mathopen{[}#1\mathclose{]}}
+
+
+
+\makeatother
