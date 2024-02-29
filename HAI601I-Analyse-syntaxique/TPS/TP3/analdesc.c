@@ -72,7 +72,7 @@ int F() {
     return a;
   } else if (isdigit(jeton)) {/* regle : F->0|1|...|9 */
     int b = jeton - '0';
-    printf("\njeton : %d\n", b);
+    // printf("\njeton : %d\n", b);
     AVANCER
     return b;
     }
