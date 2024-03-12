@@ -1,3 +1,4 @@
 */.idea/*
 */execs/*
 *.exe
+.vscode/settings.json
