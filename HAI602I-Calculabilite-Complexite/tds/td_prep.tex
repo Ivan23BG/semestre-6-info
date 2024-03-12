@@ -1,0 +1,226 @@
+\documentclass[french,a4paper,10pt]{article}
+\input{../../common/header.tex}
+\usepackage[a4paper,hmargin=30mm,vmargin=30mm]{geometry}
+\title{\color{astral} \sffamily \bfseries TD de préparation à l'examen 1}
+\author{Ivan Lejeune\thanks{Feuille inspirée de M. Giroudeau}}
+\date{\today}
+
+\begin{document}
+	
+	\maketitle
+	
+    %ex1
+	\begin{td-exo}[1]
+		Soient $f$ et $g$ deux fonctions calculables. Considérons
+        \[
+            E=\{x\mid f(x)=0\text{ ou }g(x)=0\}
+        \]
+        \begin{enumerate}
+            \item Donner un algorithme qui affiche les éléments de $E$.
+            \item Que peut-on en déduire sur $E$.
+        \end{enumerate}
+	\end{td-exo}
+
+    %sol
+    \begin{td-sol}\,
+        \begin{enumerate}
+            \item On peut écrire un algorithme qui affiche les éléments de $E$ en utilisant la
+            fonction de temps $h$. Cela donne l'algorithme suivant:\\
+                \begin{algorithm}[H]
+                    \caption{Affichage des éléments de $E$}
+                    \Entree{$\forall x,\forall t$}
+                    \Sortie{Affiche $x$ si $f(x)=0$ ou $g(x)=0$}
+                    \Si{$(h(f,x,t)\land f(x)=0) \lor (h(y,x,t)\land f(x)=0)$}{
+                        Afficher $x$
+                    }
+                \end{algorithm}
+            \item On peut en déduire que $E$ est récursivement énumérable.
+        \end{enumerate}
+    \end{td-sol}
+
+    %ex2
+    \begin{td-exo}[2]
+        Soit $f$ une bijection des suites finies d'entiers dans $\bb N$ définie 
+        $f(x_1,x_2,\dots,x_k)$ où la liste est $(x_1,x_2,\dots,x_k)$ et $x_i\in\bb N$.
+        En déduire une fonction $g$ bijective des suites croissantes (au sens large
+        i.e. $x_i\leq x_{i+1}$) finies d'entiers dans $\bb N$.
+    \end{td-exo}
+	
+    %sol
+
+
+    %ex3
+    \begin{td-exo}[3]\,
+        \begin{enumerate}
+            \item Soient $f$ et $g$ deux fonctions calculables. 
+            Soit $E=\{x\mid f(x)$ est défini, $g(x)$ est défini et $f(x)<g(x)\}$. 
+            Montrer que $E$ est récursivement énumérable.
+
+            \item Le complémentaire de $E$ est-il récursivement énumérable? Justifiez complètement votre réponse.
+
+            \item Soit $p$ une procédure définie pour tout $x$. 
+            Montrer que savoir si $\forall x,p(x)$ est premier est un problème indécidable.
+
+            \item Soit une suite $f_i$ de fonctions totales de $\bb N$ dans $\bb N$. 
+            Donner une fonction croissante $h$ qui n'appartienne pas à cette suite.
+        \end{enumerate}
+    \end{td-exo}
+
+    %sol
+    \begin{td-sol}\,
+        \begin{enumerate}
+            \item On peut écrire un algorithme qui affiche les éléments de $E$ en utilisant la
+            fonction de temps $h$. Cela donne l'algorithme suivant:\\
+                \begin{algorithm}[H]
+                    \caption{Affichage des éléments de $E$}
+                    \Entree{$\forall x,\forall t$}
+                    \Sortie{Affiche $x$ si $f(x)$ est défini, $g(x)$ est défini et $f(x)<g(x)$}
+                    \Si{$h(f,x,t)\land h(g,x,t)\land f(x)<g(x)$}{
+                        Afficher $x$
+                    }
+                \end{algorithm}
+            \item Le complémentaire de $E$ n'est pas récursivement énumérable. 
+            En effet, si le complémentaire de $E$ était récursivement énumérable, 
+            alors $E$ serait décidable, ce qui n'est pas forcément le cas.
+            \item Soit $P$ le prédicat suivant:
+            \[
+                P(p) = \begin{cases}
+                    1& \text{si }\forall x, p(x) \text{ est premier}\\
+                    0 & \text{sinon}
+                \end{cases}
+            \]
+
+            On considère
+            \[
+                \text{Int } p_0(n) \mapsto n \quad \text{et} \quad \text{Int } p_1(n) \mapsto 3
+            \]
+            Alors
+            \[
+                P(p_0) = 1 \quad \text{et} \quad P(p_1) = 0
+            \]
+            Donc $P$ n'est pas trivial.
+            Alors d'après le théorème de Rice, $P$ est indécidable.
+
+
+            \item On considère la fonction $h$ suivante:
+            \[
+                h(i)=\sum_{k=0}^i f_k(i)+i
+            \]
+            Alors $h$ est croissante et n'appartient pas à la suite $f_i$.
+        \end{enumerate}
+    \end{td-sol}
+
+    %ex4
+    \begin{td-exo}[4 - Réduction en $K$ et $K_0$]\,\\
+        Soit $K = \{x\mid x\in \bb N,\phi_x(x)\downarrow\}$ et $K_0 = \{(x,y)\mid x\in \bb N, y\in \bb N, \phi_x(y)\downarrow\}$.
+        
+        On rappelle que la notation $\phi_x(y)\downarrow$ (resp. $\phi_x(y)\uparrow$) signifie que la fonction 
+        récursive $\phi_x$ converge (resp. diverge) en $y$.
+        Montrer que $K_0$ est indécidable.
+    \end{td-exo}
+
+    %sol
+    \begin{td-sol}
+        Il suffit de voir que $K$ est un cas particulier de $K_0$.
+        Alors $K\subseteq K_0$.
+        Or $K$ est indécidable (argument diagonal de Cantor).
+
+        Donc $K_0$ est indécidable.
+    \end{td-sol}
+
+    %ex5
+    \begin{td-exo}[5 - Un nouvel ensemble $A$]\,\\
+        Soit $A=\{x\mid x\in \bb N,\phi_x$ est une fonction constante $\}$.
+        Montrer que $A$ est indécidable.
+        Pour cela, considérons la fonction
+        \[
+            g(x,y) = \begin{cases}
+                0 & \text{si } \phi_x(x) \downarrow\\
+                \uparrow & \text{sinon}
+            \end{cases}
+        \]
+        Est-ce que $g$ est calculable?
+    \end{td-exo}
+
+    %sol
+    \begin{td-sol}
+        Supposons que $x\in K$. Alors $\phi_x(x)\downarrow$. Donc $g(x,y)=0$.
+
+        Supposons que $x\notin K$. Alors $\phi_x(x)\uparrow$. Donc $g$ n'est pas constante.
+
+        Donc $A$ est indécidable.
+    \end{td-sol}
+
+    %ex6
+    \begin{td-exo}[6 - Un nouvel ensemble $B$]\,\\
+        Soit $A=\{x\mid x\in \bb N,\phi_x(4)=12\}$.
+        Montrer que $B$ est indécidable.
+
+        Pour cela, considérons la fonction
+        \[
+            g(x,y) = \begin{cases}
+                12 & \text{si } \phi_x(x)\downarrow\\
+                \uparrow & \text{sinon}
+            \end{cases}
+        \]
+
+        Est-ce que $g$ est calculable?
+    \end{td-exo}
+
+    %sol
+    \begin{td-sol}
+        Supposons que $x\in K$. Alors $\phi_x(x)\downarrow$. Donc $g(x,y)=12$.
+
+        Supposons que $x\notin K$. Alors $\phi_x(x)\uparrow$. Donc $g$ n'est pas constante.
+
+        Donc $B$ est indécidable.
+    \end{td-sol}
+
+    %ex7
+    \begin{td-exo}[7 - Un nouvel ensemble $C$]\,\\
+        Soit $C=\{x\mid x\in \bb N,\phi_x(23)\uparrow\}$.
+        Montrer que $C$ est indécidable.
+    \end{td-exo}
+
+    %sol
+    \begin{td-sol}
+        Supposons que $x\in K$. Alors $\phi_x(23)\downarrow$. Donc $x\notin C$.
+
+        Supposons que $x\notin K$. Alors $\phi_x(23)\uparrow$. Donc $x\in C$.
+
+        Donc $C$ est indécidable.
+    \end{td-sol}
+
+    %ex8
+    \begin{td-exo}[8]
+        Dans les cas suivants, donner un exemple d'ensemble $A\subseteq \bb N$ ou montrer qu'il n'en existe pas:
+        \begin{enumerate}
+            \item $A$ est récursif et $\ol A$ est récursif.
+            \item $A$ est récursif et $\ol A$ n'est pas récursif.
+            \item $A$ est récursif et $\ol A$ est récursivement énumérable.
+            \item $A$ est récursif et $\ol A$ n'est pas récursivement énumérable.
+            \item $A$ est récursivement énumérable et $\ol A$ n'est pas récursif.
+            \item $A$ est récursivement énumérable et $\ol A$ est récursivement énumérable.
+            \item $A$ est récursivement énumérable et $\ol A$ n'est pas récursivement énumérable.
+            \item $A$ n'est pas récursivement énumérable et $\ol A$ n'est pas récursivement énumérable.
+        \end{enumerate}
+    \end{td-exo}
+
+    %sol
+    \begin{td-sol}\,
+        \begin{enumerate}
+            \item On peut prendre $A=\bb N$. Alors $A$ est récursif et $\ol A=\emptyset$ est récursif.
+            \item On ne peut pas trouver un tel ensemble $A$.
+            \item On peut prendre $A=\bb N$. Alors $A$ est récursif et $\ol A=\emptyset$ est récursivement énumérable.
+            \item On ne peut pas trouver un tel ensemble $A$.
+            \item Voir exercice 3.
+            \item On peut prendre $A=\bb N$. Alors $A$ est récursivement énumérable et $\ol A=\emptyset$ est récursivement énumérable.
+            \item Voir exercice 3.
+            \item Voir le problème de l'arrêt.
+        \end{enumerate}
+    \end{td-sol}
+
+\end{document}
+
+
+
