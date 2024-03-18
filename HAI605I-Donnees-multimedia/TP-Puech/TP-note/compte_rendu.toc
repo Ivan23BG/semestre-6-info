@@ -1,0 +1,8 @@
+\babel@toc {french}{}\relax 
+\contentsline {section}{\numberline {1}Transformation de l'espace RGB vers l'espace YCbCr}{2}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Choix de l'image}{2}{subsection.1.1}%
+\contentsline {section}{\numberline {2}Densité de probabilité d'une image}{3}{section.2}%
+\contentsline {section}{\numberline {3}Fonction de répartition}{4}{section.3}%
+\contentsline {section}{\numberline {4}Augmentation du contraste d'une image par égalisation d'histogramme}{5}{section.4}%
+\contentsline {section}{\numberline {5}Lissage d'une image contrastée}{6}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Filtre gaussien}{6}{subsection.5.1}%
