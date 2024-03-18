@@ -30,7 +30,7 @@
                     \caption{Affichage des éléments de $E$}
                     \Entree{$\forall x,\forall t$}
                     \Sortie{Affiche $x$ si $f(x)=0$ ou $g(x)=0$}
-                    \Si{$(h(f,x,t)\land f(x)=0) \lor (h(y,x,t)\land f(x)=0)$}{
+                    \Si{$(h(f,x,t)\land f(x)=0) \lor (h(g,x,t)\land g(x)=0)$}{
                         Afficher $x$
                     }
                 \end{algorithm}
@@ -96,7 +96,7 @@
             \]
             Alors
             \[
-                P(p_0) = 1 \quad \text{et} \quad P(p_1) = 0
+                P(p_0) = 0 \quad \text{et} \quad P(p_1) = 1
             \]
             Donc $P$ n'est pas trivial.
             Alors d'après le théorème de Rice, $P$ est indécidable.
