@@ -11,7 +11,7 @@
 
 CIBLE = tp
 SRCS =  src/Camera.cpp tp.cpp src/Trackball.cpp
-LIBS = -L/mingw64/lib -lfreeglut -lGLU.dll -lGL.dll -lm -lpthread -lgsl -lgslcblas
+LIBS = -L/usr/lib/x86_64-linux-gnu -lglut -lGLU -lGL -lm -lpthread -lgsl -lgslcblas
 
 #########################################################"
 
