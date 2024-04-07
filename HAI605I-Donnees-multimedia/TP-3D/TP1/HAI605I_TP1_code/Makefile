@@ -10,8 +10,8 @@
 # NE PAS OUBLIER D'AJOUTER LA LISTE DES DEPENDANCES A LA FIN DU FICHIER
 
 CIBLE = tp
-SRCS =  src/Camera.cpp tp.cpp src/Trackball.cpp
-LIBS = -L/usr/lib/x86_64-linux-gnu -lglut -lGLU -lGL -lm -lpthread -lgsl -lgslcblas
+SRCS =  src/Camera.cpp tp.cpp src/Trackball.cpp 
+LIBS =  -L/usr/lib -lglut -lGLU -lGL -lm -lpthread -lgsl -lgslcblas
 
 #########################################################"
 
@@ -24,14 +24,14 @@ CC = g++
 CPP = g++
 
 # options du compilateur          
-CFLAGS = -Wall -O3
-CXXFLAGS = -Wall -O3
+CFLAGS = -Wall -O3 
+CXXFLAGS = -Wall -O3 
 
 # option du preprocesseur
-CPPFLAGS =  -I$(INCDIR)
+CPPFLAGS =  -I$(INCDIR) 
 
 # options du linker et liste des biblioth�ques � charger
-LDFLAGS = -L/usr/X11R6/lib
+LDFLAGS = -L/usr/X11R6/lib              
 LDLIBS = -L$(LIBDIR) $(LIBS)  
 
 # construire la liste des fichiers objets une nouvelle chaine � partir
@@ -41,7 +41,7 @@ OBJS = $(SRCS:.cpp=.o)
 # cible par d�faut
 $(CIBLE): $(OBJS)
 
-install:  $(CIBLE)
+install: $(CIBLE)
 	cp $(CIBLE) $(BINDIR)/
 
 installdirs:
@@ -58,7 +58,7 @@ veryclean: clean
 dep:
 	gcc $(CPPFLAGS) -MM $(SRCS)
 
-# liste des dependances generee par 'make dep'
+# liste des d�pendances g�n�r�e par 'make dep'
 Camera.o: src/Camera.cpp src/Camera.h src/Vec3.h src/Trackball.h
 tp.o: tp.cpp src/Vec3.h src/Camera.h src/Trackball.h
 Trackball.o: src/Trackball.cpp src/Trackball.h
