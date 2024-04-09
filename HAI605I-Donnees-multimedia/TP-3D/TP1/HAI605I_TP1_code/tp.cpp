@@ -83,9 +83,80 @@ static int lastX=0, lastY=0, lastZoom=0;
 static bool fullScreen = false;
 
 //To complete
+Vec3 cross(const Vec3& a, const Vec3& b) {
+    return Vec3{
+        a[1] * b[2] - a[2] * b[1],
+        a[2] * b[0] - a[0] * b[2],
+        a[0] * b[1] - a[1] * b[0]
+    };
+}
+
+double norm(const Vec3& v) {
+    return sqrt(v[0] * v[0] + v[1] * v[1] + v[2] * v[2]);
+}
+
 void setUnitSphere( Mesh & o_mesh, int nX=20, int nY=20 )
 {
+// creer des sommets discretisant la sphere avec un nombre nX de meridiens et nY de paralleles
 
+    o_mesh.vertices.clear();
+    o_mesh.normals.clear();
+    o_mesh.triangles.clear();
+
+    for( int i = 0 ; i < nX ; ++i ) {
+        for( int j = 0 ; j < nY ; ++j ) {
+            float theta = 2.0f * M_PI * i / nX;
+            float phi = M_PI * j / nY;
+
+            float x = cos(theta) * cos(phi);
+            float y = sin(theta) * cos(phi);
+            float z = sin(phi);
+
+            // generation de la topologie
+            o_mesh.vertices.push_back( Vec3( x , y , z ) );
+            o_mesh.normals.push_back( Vec3( x , y , z ) );
+
+        }
+    }
+
+    // generation des triangles
+
+
+    for( int i = 0 ; i < nX ; ++i ) {
+        for( int j = 0 ; j < nY ; ++j ) {
+            int i0 = i * nY + j;
+            int i1 = (i+1) * nY + j;
+            int i2 = (i+1) * nY + (j+1);
+            int i3 = i * nY + (j+1);
+
+            if( j == nY - 1 ) {
+                i2 = (i+1) * nY;
+                i3 = i * nY;
+            }
+
+            o_mesh.triangles.push_back( Triangle( i0 , i1 , i2 ) );
+            o_mesh.triangles.push_back( Triangle( i0 , i2 , i3 ) );
+        }
+    }
+
+    //Calcul des normales
+    for( unsigned int t = 0 ; t < o_mesh.triangles.size() ; ++t ) {
+        Vec3 p0 = o_mesh.vertices[o_mesh.triangles[t][0]];
+        Vec3 p1 = o_mesh.vertices[o_mesh.triangles[t][1]];
+        Vec3 p2 = o_mesh.vertices[o_mesh.triangles[t][2]];
+
+        Vec3 n = cross( p1 - p0 , p2 - p0 );
+        n /= norm(n);
+
+        o_mesh.normals[o_mesh.triangles[t][0]] += n;
+        o_mesh.normals[o_mesh.triangles[t][1]] += n;
+        o_mesh.normals[o_mesh.triangles[t][2]] += n;
+    }
+
+    // normalisation des normales
+    for( unsigned int n = 0 ; n < o_mesh.normals.size() ; ++n ) {
+        o_mesh.normals[n] /= norm(o_mesh.normals[n]);
+    }
 
 }
 
@@ -418,6 +489,16 @@ void key (unsigned char keyPressed, int x, int y) {
     case '2': //Toggle unit sphere mesh display
         display_unit_sphere = !display_unit_sphere;
         break;
+
+    case '+':
+        setUnitSphere( unit_sphere, unit_sphere.vertices.size() + 1, unit_sphere.vertices.size() + 1 );
+        break;
+
+    case '-':
+        if( unit_sphere.vertices.size() > 2 )
+            setUnitSphere( unit_sphere, unit_sphere.vertices.size() - 1, unit_sphere.vertices.size() - 1 );
+        break;
+
 
     default:
         break;

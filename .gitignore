@@ -2,3 +2,4 @@
 */execs/*
 *.exe
 .vscode/settings.json
+*.o
